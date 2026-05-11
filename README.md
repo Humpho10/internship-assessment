@@ -1,3 +1,4 @@
+---
 title: Transcriber
 emoji: 🐦
 colorFrom: blue
@@ -6,6 +7,7 @@ sdk: streamlit
 sdk_version: "1.28.2"
 app_file: app.py
 pinned: false
+---
 
 # Sunbird AI Internship Assessment Exercise
 
