@@ -1,3 +1,12 @@
+title: Transcriber
+emoji: 🐦
+colorFrom: blue
+colorTo: green
+sdk: streamlit
+sdk_version: "1.28.2"
+app_file: app.py
+pinned: false
+
 # Sunbird AI Internship Assessment Exercise
 
 This assessment consists of 3 parts:
