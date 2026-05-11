@@ -59,6 +59,7 @@ This is a Generative AI web application built with Streamlit and powered entirel
 
 - **Audio constraints:** Imposed a strong < 5-minute audio length constraint to avoid overwhelming the inference nodes and triggering 504 server timeouts.
 - **Gateway Timeouts:** Occasional 504 Gateway Timeouts happen with the STT API; re-running the transaction handles this gracefully.
+- **TTS Endpoint Instability:** The Sunbird Text-to-Speech `/tts` API endpoint is occasionally prone to connection drops or failing to return an audio blob stream during peak times. The application implements HTTP timeouts and graceful error handling via the UI to catch these downstream provider outages without crashing the core translation pipeline.
 
 ---
 
