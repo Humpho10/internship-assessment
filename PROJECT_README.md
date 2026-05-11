@@ -66,7 +66,7 @@ This is a Generative AI web application built with Streamlit and powered entirel
 
 ### Deployment Proof & Public Link Evidence
 
-- **Public URL**: `[INSERT_YOUR_HUGGING_FACE_SPACE_URL_HERE]`
+- **Public URL**: [https://huggingface.co/spaces/Humpho10/Transcriber](https://huggingface.co/spaces/Humpho10/Transcriber)
 - **Deployment Status**: Live / Deployed to Hugging Face Spaces.
 
 ### Model Ranking Table
