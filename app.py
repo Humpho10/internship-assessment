@@ -66,9 +66,7 @@ if source_text:
         with st.spinner("Summarizing..."):
             try:
                 summary = client.summarize_text(source_text)
-                st.success("Summary Generated!")
-                st.write("**Summary:**")
-                st.info(summary)
+                st.session_state["summary"] = summary
             except Exception as e:
                 st.error(f"Error during summarization: {e}")
                 st.stop()
@@ -76,9 +74,7 @@ if source_text:
         with st.spinner(f"Translating to {target_language}..."):
             try:
                 translation = client.translate_text(summary, target_language)
-                st.success("Translation complete!")
-                st.write(f"**Translated to {target_language}:**")
-                st.info(translation)
+                st.session_state["translation"] = translation
             except Exception as e:
                 st.error(f"Error during translation: {e}")
                 st.stop()
@@ -87,9 +83,22 @@ if source_text:
             try:
                 speaker_id = LANGUAGES[target_language]
                 audio_url = client.generate_audio(translation, speaker_id)
-                
-                st.success("Audio generated!")
-                st.audio(audio_url)
+                st.session_state["audio_url"] = audio_url
             except Exception as e:
                 st.error(f"Error during Text-to-Speech: {e}")
+                
+    # Display the results outside the button click so they survive reruns
+    if "summary" in st.session_state:
+        st.success("Summary Generated!")
+        st.write("**Summary:**")
+        st.info(st.session_state["summary"])
+        
+    if "translation" in st.session_state:
+        st.success("Translation complete!")
+        st.write(f"**Translated to {target_language}:**")
+        st.info(st.session_state["translation"])
+        
+    if "audio_url" in st.session_state:
+        st.success("Audio generated!")
+        st.audio(st.session_state["audio_url"])
 
