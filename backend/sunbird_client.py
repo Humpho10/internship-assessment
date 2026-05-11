@@ -21,7 +21,7 @@ class SunbirdClient:
         files = {
             'audio': (filename, audio_bytes, content_type)
         }
-        response = requests.post(url, headers=headers_multipart, files=files)
+        response = requests.post(url, headers=headers_multipart, files=files, timeout=120)
         response.raise_for_status()
         
         data = response.json()
@@ -48,7 +48,7 @@ class SunbirdClient:
                 {"role": "user", "content": text}
             ]
         }
-        response = requests.post(url, headers=self.headers, json=payload)
+        response = requests.post(url, headers=self.headers, json=payload, timeout=120)
         response.raise_for_status()
         
         data = response.json()
@@ -63,7 +63,7 @@ class SunbirdClient:
                 {"role": "user", "content": text}
             ]
         }
-        response = requests.post(url, headers=self.headers, json=payload)
+        response = requests.post(url, headers=self.headers, json=payload, timeout=120)
         response.raise_for_status()
         
         data = response.json()
@@ -76,7 +76,7 @@ class SunbirdClient:
             "text": text,
             "speaker_id": speaker_id
         }
-        response = requests.post(url, headers=self.headers, json=payload)
+        response = requests.post(url, headers=self.headers, json=payload, timeout=120)
         response.raise_for_status()
         
         data = response.json()
