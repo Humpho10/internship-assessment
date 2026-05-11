@@ -63,6 +63,11 @@ else:
 
 if source_text:
     if st.button("Run Pipeline (Summarize & Translate)"):
+        # Clear previous pipeline results
+        for k in ["summary", "translation", "audio_url"]:
+            if k in st.session_state:
+                del st.session_state[k]
+                
         with st.spinner("Summarizing..."):
             try:
                 summary = client.summarize_text(source_text)
